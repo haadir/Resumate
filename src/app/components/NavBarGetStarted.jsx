@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function NavBar() {
+export default function NavBarGetStarted() {
   const scrollToSection = (id) => {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
   };
@@ -20,12 +20,18 @@ export default function NavBar() {
           <span className="ml-2 text-xl font-medium text-black">Resumate</span>
         </div>
         <div className="flex items-center space-x-8 ml-8">
-          <button onClick={() => scrollToSection('features')} className="text-gray-600 hover:text-gray-900 cursor-pointer">
-            Features
-          </button>
-          {/* <button onClick={() => scrollToSection('pricing')} className="text-gray-600 hover:text-gray-900 cursor-pointer">
-            Pricing
-          </button> */}
+          {/* <a className="text-gray-600 hover:text-gray-900">
+            Create New
+          </a>
+          <a className="text-gray-600 hover:text-gray-900">
+            My Resumes
+          </a>
+          <a className="text-gray-600 hover:text-gray-900">
+            Apply
+          </a>
+          <a className="text-gray-600 hover:text-gray-900">
+            Opportunities
+          </a> */}
           <a href="mailto:resumateservice@gmail.com" className="text-gray-600 hover:text-gray-900">
             Contact Us
           </a>

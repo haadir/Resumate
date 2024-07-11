@@ -2,6 +2,7 @@
 
 import NavBar from './components/NavBar';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Typewriter } from 'react-simple-typewriter';
 
 export default function Home() {
@@ -45,14 +46,16 @@ export default function Home() {
                     onLoopDone={() => console.log('Done with loop!')}
                   />
                 </div>
-                <button className="ml-4 px-4 py-2 text-white bg-gradient-to-r from-pink-500 to-purple-500 rounded-md hover:from-pink-600 hover:to-purple-600 focus:outline-none">
-                  Get Started
-                </button>
+                <Link href="/GetStarted" legacyBehavior>
+                  <a className="ml-4 px-4 py-2 text-white bg-gradient-to-r from-pink-500 to-purple-500 rounded-md hover:from-pink-600 hover:to-purple-600 focus:outline-none">
+                    Get Started
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
           <div className="lg:w-5/12 flex justify-center lg:justify-start mt-2">
-            <Image src="/HomePageGraphic.svg" alt="SVG illustration" width={430} height={430} />
+            <Image src="/HomePageGraphic.svg" alt="SVG illustration" width={500} height={400} />
           </div>
         </div>
         <div id="features" className="w-full text-center mt-0">
