@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 export default function InputForm3({ setProgress, progress, onComplete }) {
   const [jobTitle, setJobTitle] = useState('');
@@ -65,3 +66,9 @@ export default function InputForm3({ setProgress, progress, onComplete }) {
     </form>
   );
 }
+
+InputForm3.propTypes = {
+  setProgress: PropTypes.func.isRequired,
+  progress: PropTypes.number.isRequired,
+  onComplete: PropTypes.func.isRequired,
+};

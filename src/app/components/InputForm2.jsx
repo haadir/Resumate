@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 export default function InputForm2({ setProgress, progress, onComplete }) {
   const [courses, setCourses] = useState([]);
@@ -116,3 +117,9 @@ export default function InputForm2({ setProgress, progress, onComplete }) {
     </form>
   );
 }
+
+InputForm2.propTypes = {
+  setProgress: PropTypes.func.isRequired,
+  progress: PropTypes.number.isRequired,
+  onComplete: PropTypes.func.isRequired,
+};
