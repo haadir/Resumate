@@ -1,32 +1,44 @@
-// src/app/CreateResume/page.tsx
+'use client';
 
+import React, { useState } from 'react';
 import NavBar2 from '../components/NavBarGetStarted';
+import InputForm from '../components/InputForm';
+import InputForm2 from '../components/InputForm2';
+import ProgressBar from '../components/ProgressBar';
 
 export default function CreateResume() {
+  const [progress, setProgress] = useState(0);
+  const [showInitialForm, setShowInitialForm] = useState(true);
+
+  const handleFormCompletion = () => {
+    setShowInitialForm(false);
+  };
+
   return (
     <>
       <NavBar2 />
       <main className="flex flex-col items-center justify-center min-h-screen bg-white w-full py-10">
-        <div className="container mx-auto flex flex-col items-center space-y-10">
-          {/* Progress Bar */}
-          <div className="w-full max-w-2xl bg-gray-300 rounded-full h-6">
-            <div className="bg-yellow-400 h-6 rounded-full" style={{ width: '0%' }}></div>
-          </div>
-          {/* Content Section */}
-          <div className="flex w-full max-w-4xl space-x-10">
-            {/* Left Section */}
-            <div className="flex flex-col items-center space-y-6 w-1/2">
-              {/* Card Placeholder */}
-              <div className="w-full h-64 bg-gray-200 rounded-lg"></div>
-              {/* Upload Section */}
-              <button className="w-full max-w-md py-4 bg-gray-300 rounded-lg flex items-center justify-center">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v-4a4 4 0 014-4h3m4 0h3a4 4 0 014 4v4m-6 4l-4-4m0 0l-4 4m4-4v-12"></path>
-                </svg>
-              </button>
+        <div className="container mx-auto flex flex-row items-start space-x-10">
+          {/* Left Side: Form and Progress Bar */}
+          <div className="flex flex-col items-center space-y-10 w-1/2">
+            <div className="w-full">
+              <ProgressBar progress={progress} />
             </div>
-            {/* Right Section */}
-            <div className="w-1/2 h-96 bg-gray-100 rounded-lg"></div>
+            {showInitialForm ? (
+              <InputForm setProgress={setProgress} onComplete={handleFormCompletion} />
+            ) : (
+              <InputForm2 setProgress={setProgress} />
+            )}
+          </div>
+          
+          {/* Vertical Line */}
+          <div className="border-l-2 border-gray-300 h-full"></div>
+          
+          {/* Right Side: Placeholder for Generated Resume */}
+          <div className="w-1/2 flex items-center justify-center">
+            <div className="bg-gray-100 w-full h-full flex items-center justify-center">
+              <span className="text-gray-500">Generated Resume will appear here</span>
+            </div>
           </div>
         </div>
       </main>

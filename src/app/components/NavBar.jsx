@@ -23,19 +23,13 @@ export default function NavBar() {
           <button onClick={() => scrollToSection('features')} className="text-gray-600 hover:text-gray-900 cursor-pointer">
             Features
           </button>
-          {/* <button onClick={() => scrollToSection('pricing')} className="text-gray-600 hover:text-gray-900 cursor-pointer">
-            Pricing
-          </button> */}
-          <a href="mailto:resumateservice@gmail.com" className="text-gray-600 hover:text-gray-900">
+          <a href="mailto:resumateservice@gmail.com" className="text-gray-600 hover:text-gray-900 no-underline">
             Contact Us
           </a>
         </div>
         <div className="flex space-x-4">
-          {/* <Link href="/login" legacyBehavior>
-            <a className="px-4 py-2 text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200">Login</a>
-          </Link> */}
           <Link href="/GetStarted" legacyBehavior>
-            <a className="px-4 py-2 text-white bg-gradient-to-r from-pink-500 to-purple-500 rounded-md hover:from-pink-600 hover:to-purple-600">Get Started</a>
+            <a className="px-4 py-2 text-white bg-gradient-to-r from-pink-500 to-purple-500 rounded-md hover:from-pink-600 hover:to-purple-600 no-underline">Get Started</a>
           </Link>
         </div>
       </div>

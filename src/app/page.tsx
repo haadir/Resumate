@@ -47,7 +47,7 @@ export default function Home() {
                   />
                 </div>
                 <Link href="/GetStarted" legacyBehavior>
-                  <a className="ml-4 px-4 py-2 text-white bg-gradient-to-r from-pink-500 to-purple-500 rounded-md hover:from-pink-600 hover:to-purple-600 focus:outline-none">
+                  <a className="ml-4 px-4 py-2 text-white bg-gradient-to-r from-pink-500 to-purple-500 rounded-md hover:from-pink-600 hover:to-purple-600 focus:outline-none whitespace-nowrap no-underline">
                     Get Started
                   </a>
                 </Link>

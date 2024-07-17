@@ -1,37 +1,45 @@
 'use client';
 
-import NavBar2 from '../components/NavBarGetStarted.jsx';
-import Image from 'next/image';
+import React, { useState } from 'react';
+import NavBar2 from '../components/NavBarGetStarted';
+import InputForm from '../components/InputForm';
+import InputForm2 from '../components/InputForm2';
+import InputForm3 from '../components/InputForm3';
+import ProgressBar from '../components/ProgressBar';
 
-export default function GetStarted() {
+export default function CreateResume() {
+  const [progress, setProgress] = useState(25); // Start at 25% progress
+  const [formStep, setFormStep] = useState(1); // Track form steps
+
+  const handleFormCompletion = () => {
+    setFormStep((prevFormStep) => prevFormStep + 1);
+  };
+
+  console.log("CreateResume: formStep =", formStep);
+
   return (
     <>
       <NavBar2 />
-      <main className="flex flex-col items-center justify-center min-h-screen bg-white w-full">
-        <div className="flex flex-col items-center justify-center flex-grow mt-[-300px]">
-          <h1 className="text-4xl font-bold text-center mb-8 text-gray-700">Let&apos;s start crafting your resume!</h1>
-          <div className="flex flex-col space-y-4 mt-10">
-            <a href="/CreateResume" className="flex items-center justify-between p-6 bg-white rounded-lg shadow-md w-full max-w-md">
-              <div className="flex items-center">
-                <Image src="/Scratch.svg" alt="Start from scratch" width={40} height={40} />
-                <div className="ml-4">
-                  <h2 className="text-xl font-semibold text-gray-700">Start from scratch</h2>
-                  <p className="text-gray-500">Let&apos;s get started</p>
-                </div>
-              </div>
-            </a>
-            {/* <div className="flex items-center justify-between p-6 bg-white rounded-lg shadow-md w-full max-w-md">
-              <div className="flex items-center">
-                <Image src="/Upload.svg" alt="Already have a resume?" width={40} height={40} />
-                <div className="ml-4">
-                  <h2 className="text-xl font-semibold text-gray-700">Already have a resume?</h2>
-                  <p className="text-gray-500">Upload and get started</p>
-                </div>
-              </div>
-              <a href="/upload-resume" className="text-pink-500 hover:text-purple-500 transition duration-300">
-                &rarr;
-              </a>
-            </div> */}
+      <main className="flex flex-col items-center justify-center min-h-screen bg-white w-full py-10">
+        <div className="container mx-auto flex flex-row items-start space-x-10">
+          {/* Left Side: Form and Progress Bar */}
+          <div className="flex flex-col items-center space-y-10 w-1/2">
+            <div className="w-full">
+              <ProgressBar progress={progress} />
+            </div>
+            {formStep === 1 && <InputForm setProgress={setProgress} progress={progress} onComplete={handleFormCompletion} />}
+            {formStep === 2 && <InputForm2 setProgress={setProgress} progress={progress} onComplete={handleFormCompletion} />}
+            {formStep === 3 && <InputForm3 setProgress={setProgress} progress={progress} onComplete={handleFormCompletion} />}
+          </div>
+          
+          {/* Vertical Line */}
+          <div className="border-l-2 border-gray-300 h-full"></div>
+          
+          {/* Right Side: Placeholder for Generated Resume */}
+          <div className="w-1/2 flex items-center justify-center">
+            <div className="bg-gray-100 w-full h-full flex items-center justify-center">
+              <span className="text-gray-500">Generated Resume will appear here</span>
+            </div>
           </div>
         </div>
       </main>
