@@ -19,7 +19,6 @@ export default function InputForm2({ setProgress, progress, onComplete }) {
   ];
 
   useEffect(() => {
-    console.log("InputForm2: onComplete =", onComplete);
     updateProgress();
   }, [courses]);
 
@@ -59,11 +58,7 @@ export default function InputForm2({ setProgress, progress, onComplete }) {
         courses,
       };
       console.log('Courses Form Data:', JSON.stringify(formData, null, 2));
-      if (typeof onComplete === 'function') {
-        onComplete(); // Transition to the next form
-      } else {
-        console.error("onComplete is not a function:", onComplete);
-      }
+      onComplete(); // Transition to the next form
     }
   };
 

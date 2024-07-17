@@ -32,11 +32,7 @@ export default function InputForm3({ setProgress, progress, onComplete }) {
         description,
       };
       console.log('Job Form Data:', JSON.stringify(formData, null, 2));
-      if (typeof onComplete === 'function') {
-        onComplete(); // Transition to the next form or finalize the process
-      } else {
-        console.error("onComplete is not a function:", onComplete);
-      }
+      onComplete(); // Transition to the next form or finalize the process
     }
   };
 

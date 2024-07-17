@@ -12,10 +12,21 @@ export default function CreateResume() {
   const [formStep, setFormStep] = useState(1); // Track form steps
 
   const handleFormCompletion = () => {
-    setFormStep((prevFormStep) => prevFormStep + 1);
+    setFormStep(prevFormStep => prevFormStep + 1);
   };
 
-  console.log("CreateResume: formStep =", formStep);
+  const renderForm = () => {
+    switch (formStep) {
+      case 1:
+        return <InputForm setProgress={setProgress} progress={progress} onComplete={handleFormCompletion} />;
+      case 2:
+        return <InputForm2 setProgress={setProgress} progress={progress} onComplete={handleFormCompletion} />;
+      case 3:
+        return <InputForm3 setProgress={setProgress} progress={progress} onComplete={handleFormCompletion} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <>
@@ -27,9 +38,7 @@ export default function CreateResume() {
             <div className="w-full">
               <ProgressBar progress={progress} />
             </div>
-            {formStep === 1 && <InputForm setProgress={setProgress} progress={progress} onComplete={handleFormCompletion} />}
-            {formStep === 2 && <InputForm2 setProgress={setProgress} progress={progress} onComplete={handleFormCompletion} />}
-            {formStep === 3 && <InputForm3 setProgress={setProgress} progress={progress} onComplete={handleFormCompletion} />}
+            {renderForm()}
           </div>
           
           {/* Vertical Line */}
